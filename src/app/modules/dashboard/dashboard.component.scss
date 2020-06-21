@@ -1,0 +1,48 @@
+.area-line-chart{
+    text-align: -webkit-center;
+    text-align: -moz-center;
+}
+.vertical-bar-chart{
+    text-align: -webkit-center;
+    text-align: -moz-center;
+}
+.horizontal-bar-chart{
+    text-align: -webkit-center;
+    text-align: -moz-center;
+}
+.table-view{
+    margin-bottom: 22px;
+}
+.donutCard{
+   height: 320px;
+   text-align: -webkit-center;
+     text-align: -moz-center;
+}
+
+.stats-cards{
+    .mat-card{
+        overflow: hidden;
+    }
+}
+table {
+    width: 100%;
+  }
+  @media(max-width:768px){
+    .stats-card{
+        display: grid!important;
+        grid-template-columns: 50% 50%;
+        grid-gap: 10px;
+        .mat-card{
+           width: 100%;
+            max-width: 100%!important;
+        }
+    }
+    .table-view{
+        flex-direction: column!important;
+        .tableDemo{
+            max-width: 100% !important;
+        }
+    }
+   
+    
+  }

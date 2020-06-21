@@ -1,0 +1,108 @@
+
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-card">
+  <mat-card fxFlex="100">
+    <div class="campaign-spend-results" *ngFor="let brandDetail of totalcomainSpendData">
+      <div class="chart-title" style="font-size: 18px;padding: 25px;font-weight: 500; text-align: center;">
+        <span>Campaign spend results</span>
+      </div>
+      <div class="area-line-chart">
+        <div *ngIf="canLinecharRender">
+          <div style="width: 1180px; height:450px;">
+            <app-line-single-axis-chart [data]="brandDetail.comainSpendData" field="Consideration">
+            </app-line-single-axis-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</div>
+
+<br>
+<mat-divider></mat-divider>
+
+<br>
+
+
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-card">
+  <mat-card fxFlex="50">
+    <div class="vertical-bar-chart" style="border-bottom: 1px solid #CACACA;">
+      <div *ngIf="canBarRender">
+        <div class="card" style="width: 550px; height:272px;">
+          <app-bar-vertical-chart [data]="BarchartData" field="Return on ad spend">
+          </app-bar-vertical-chart>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+
+  <mat-card fxFlex="50">
+    <div class="horizontal-bar-chart" style="padding-top: 20px;">
+      <div *ngIf="canBarRender">
+        <div class="card">
+          <app-bar-horizontal-chart [parentWidth]="500" [parentHeight]="250" [data]="BarchartData" field="Digital">
+          </app-bar-horizontal-chart>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</div>
+
+<br>
+<mat-divider></mat-divider>
+<br>
+
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="table-view">
+  <div fxFlex="50" class="tableDemo">
+    <h2>Brand Impressions</h2>
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Brand </th>
+          <td mat-cell *matCellDef="let element"> {{element.Brand}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="weight">
+          <th mat-header-cell *matHeaderCellDef> Annual Impressions </th>
+          <td mat-cell *matCellDef="let element"> {{element.total}} </td>
+        </ng-container>
+        
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="symbol">
+          <th mat-header-cell *matHeaderCellDef> Quaterly Impressions </th>
+          <td mat-cell *matCellDef="let element"> {{element.quarter}} </td>
+        </ng-container>
+
+        
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+
+  </div>
+  <mat-divider></mat-divider>
+
+  <div fxFlex="50" class="tableDemo">
+    <h2>Brand Benchmarks</h2>
+    <mat-card class="donutCard">
+    <div class="card" *ngFor="let data of DonutData"
+      style="width: 380px;height: 270px; position: relative;">
+      <app-doughnut-chart [metric]="data.metric" [donutChartData]="data.donut1" type="distribution" [parentWidth]="600"
+        [parentHeight]="450"></app-doughnut-chart>
+    </div>
+  </mat-card>
+  </div>
+
+</div>

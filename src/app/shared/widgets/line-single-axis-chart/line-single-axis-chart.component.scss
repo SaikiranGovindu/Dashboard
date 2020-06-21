@@ -1,0 +1,23 @@
+.line {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 2px;
+  }
+  line{
+    stroke: none;
+  }
+  .yaxisText{
+    path{
+      stroke: #E6E6E6;
+    }
+  }
+  .xaxisText{
+    path{
+      stroke: #E6E6E6;
+    }
+  }
+  .grid{
+    path{
+      stroke: #E6E6E6;
+    }
+  }
