@@ -30,7 +30,7 @@
     "@types/d3-zoom": "^1.7.4",
     "accept-language": "^3.0.18",
     "angular-d3-charts": "^5.0.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.28",
     "d3": "^5.15.0",
